@@ -26,6 +26,9 @@
 <div id="screen">
     Screen
 </div>
+<div id="window-outer">
+    Screen
+</div>
 <div id="viewport">
     Viewport
 </div>
@@ -58,9 +61,15 @@
     });
 
     setTimeout(function() {
-        var height = window.screen.width
-        var width = window.screen.height
+        var height = window.screen.height
+        var width = window.screen.width
         document.getElementById("screen").innerHTML += " " + height + "X" + width;
+    });
+
+ setTimeout(function() {
+        var height = window.outerHeight
+        var width = window.outerWidth
+        document.getElementById("window-outer").innerHTML += " " + height + "X" + width;
     });
 
     setTimeout(function() {
