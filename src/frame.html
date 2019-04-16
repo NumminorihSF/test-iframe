@@ -26,6 +26,12 @@
 <div id="screen">
     Screen
 </div>
+<div id="viewport">
+    Viewport
+</div>
+<div id="vh-vw">
+    VH + VW
+</div>
 <script>
     console.log("this");
     setTimeout(function() {
@@ -53,6 +59,20 @@
         var width = window.screen.height
         document.getElementById("screen").innerHTML += " " + height + "X" + width;
     });
+
+    setTimeout(function() {
+        var height = window.visualViewport.width
+        var width = window.visualViewport.height
+        document.getElementById("viewport").innerHTML += " " + height + "X" + width;
+    });
+
+
+    setTimeout(function() {
+        const elem = document.createElement('div');
+        elem.style.height = '100vh';
+        elem.style.width = '100vw';
+        document.getElementById("vh-vw").innerHTML += " " + elem.style.height + "X" + elem.style.width;
+    })
 
     function getRootWindow(window) {
         if (window.parent) {
