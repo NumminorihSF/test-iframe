@@ -61,8 +61,8 @@
     });
 
     setTimeout(function() {
-        var height = window.visualViewport.width
-        var width = window.visualViewport.height
+        var height = window.visualViewport.height
+        var width = window.visualViewport.width
         document.getElementById("viewport").innerHTML += " " + height + "X" + width;
     });
 
@@ -80,9 +80,9 @@
     });
 
     function getRootWindow(window) {
-        if (window.parent) {
+        if (window.parent && window.parent.window) {
             try {
-                return getRootWindow(window.parent);
+                return getRootWindow(window.parent.window);
             }
             catch(e) {
                 return window;
