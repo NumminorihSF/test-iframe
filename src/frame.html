@@ -73,16 +73,25 @@
         elem.style.width = '100vw';
         const wrapper = document.createElement('div');
         wrapper.appendChild(elem);
+        wrapper.style.position = 'absolute';
+        document.body.appendChild(wrapper);
         const style = window.getComputedStyle(wrapper);
         document.getElementById("vh-vw").innerHTML += " " + style.height + "X" + style.width;
-    })
+    });
 
     function getRootWindow(window) {
         if (window.parent) {
-            return getRootWindow(window.parent);
+            try {
+                return getRootWindow(window.parent);
+            }
+            catch(e) {
+                return window;
+            }
         }
+
         return window;
     }
+
     setTimeout(function() {
         var parent = getRootWindow(window);
         var document = parent.document;
