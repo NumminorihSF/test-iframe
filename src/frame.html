@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=yes"
+    />
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+    Iframe root
+</div>
+<div id="parent">
+    Iframe parent
+</div>
+<script>
+    console.log("this");
+    setTimeout(function() {
+        var height = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.offsetHeight,
+            document.body.clientHeight,
+            document.documentElement.clientHeight
+        );
+        var width = Math.max(
+            document.body.scrollWidth,
+            document.documentElement.scrollWidth,
+            document.body.offsetWidth,
+            document.documentElement.offsetWidth,
+            document.body.clientWidth,
+            document.documentElement.clientWidth
+        );
+        document.getElementById("root").innerHTML += " " + height + "X" + width;
+    });
+
+    function getRootWindow(window) {
+        if (window.parent) {
+            return window.parent;
+        }
+        return window;
+    }
+    setTimeout(function() {
+        var parent = getRootWindow(window);
+        var document = parent.document;
+        var pheight = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.offsetHeight,
+            document.body.clientHeight,
+            document.documentElement.clientHeight
+        );
+        var pwidth = Math.max(
+            document.body.scrollWidth,
+            document.documentElement.scrollWidth,
+            document.body.offsetWidth,
+            document.documentElement.offsetWidth,
+            document.body.clientWidth,
+            document.documentElement.clientWidth
+        );
+        window.document.getElementById("parent").innerHTML +=
+            " " + pheight + "X" + pwidth;
+    });
+</script>
+</body>
+</html>

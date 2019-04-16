@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1, user-scalable=yes"
+    />
+    <style>
+        html,
+        body {
+        /height: 100%;
+        /width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+    Root
+</div>
+<script type="application/javascript" src="src/index.js"></script>
+<div style="height: 300px;width:400px">
+    Iframe (real 300x400)
+    <iframe
+            scrolling="no"
+            allowfullscreen=""
+            gesture="media"
+            allow="autoplay; encrypted-media"
+            src="src/frame.html"
+            style="width: 100%; height: 100%; border-width: 0px; display: block;"
+    ></iframe>
+</div>
+</body>
+</html>
