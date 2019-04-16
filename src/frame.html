@@ -69,9 +69,13 @@
         document.getElementById("viewport").innerHTML += " " + height + "X" + width;
     });
     setTimeout(function() {
-        var height = window.frameElement.offsetHeight
-        var width = window.frameElement.offsetWidth
-        document.getElementById("frame").innerHTML += " " + height + "X" + width;
+        if (window.frameElement) {
+            var height = window.frameElement.offsetHeight
+            var width = window.frameElement.offsetWidth
+            document.getElementById("frame").innerHTML += " " + height + "X" + width;
+        } else {
+            document.getElementById("frame").innerHTML += " no frameElement";
+        }
     });
 
 
@@ -88,9 +92,9 @@
     });
 
     function getRootWindow(window) {
-        if (window.parent && window.parent.window) {
+        if (window.parent && window.parent !== window) {
             try {
-                return getRootWindow(window.parent.window);
+                return getRootWindow(window.parent);
             }
             catch(e) {
                 return window;
@@ -103,7 +107,6 @@
     setTimeout(function() {
         var parent = getRootWindow(window);
         var document = parent.document;
-        debugger;
         var pheight = Math.max(
             document.body.scrollHeight,
             document.documentElement.scrollHeight,
