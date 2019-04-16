@@ -26,9 +26,6 @@
 <div id="screen">
     Screen
 </div>
-<div id="window">
-    Window
-</div>
 <div id="window-inner">
     Window.inner
 </div>
@@ -89,11 +86,6 @@
         document.getElementById("window-inner").innerHTML += " " + height + "X" + width;
     });
 
-    setTimeout(function() {
-        var height = window.visualViewport.height
-        var width = window.visualViewport.width
-        document.getElementById("viewport").innerHTML += " " + height + "X" + width;
-    });
     setTimeout(function() {
         if (window.frameElement) {
             var height = window.frameElement.offsetHeight
