@@ -71,7 +71,10 @@
         const elem = document.createElement('div');
         elem.style.height = '100vh';
         elem.style.width = '100vw';
-        document.getElementById("vh-vw").innerHTML += " " + elem.style.height + "X" + elem.style.width;
+        const wrapper = document.createElement('div');
+        wrapper.appendChild(elem);
+        const style = window.getComputedStyle(wrapper);
+        document.getElementById("vh-vw").innerHTML += " " + style.height + "X" + style.width;
     })
 
     function getRootWindow(window) {
