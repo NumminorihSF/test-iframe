@@ -29,6 +29,9 @@
 <div id="viewport">
     Viewport
 </div>
+<div id="frame">
+    frame
+</div>
 <div id="vh-vw">
     VH + VW
 </div>
@@ -64,6 +67,11 @@
         var height = window.visualViewport.height
         var width = window.visualViewport.width
         document.getElementById("viewport").innerHTML += " " + height + "X" + width;
+    });
+    setTimeout(function() {
+        var height = window.frameElement.offsetHeight
+        var width = window.frameElement.orrseWidth
+        document.getElementById("frame").innerHTML += " " + height + "X" + width;
     });
 
 
