@@ -158,16 +158,30 @@
     }, 1000);
 
     setTimeout(function() {
+        var screenX = 0;
+        var clientX = 0;
         window.addEventListener("mousemove", function(event) {
-            var mouseScale = event.screenX / event.clientX;
-            document.getElementById('mouse').innerHTML = mouseScale;
+            if (screenX && clientX) {
+                var mouseScale = (event.screenX - screenX) / (event.clientX - clientX);
+                document.getElementById('mouse').innerHTML = mouseScale;
+            } else {
+                screenX = event.screenX;
+                clientX = event.clientX;
+            }
         });
     });
 
     setTimeout(function() {
+        var screenX = 0;
+        var clientX = 0;
         window.top.addEventListener("mousemove", function(event) {
-            var mouseScale = event.screenX / event.clientX;
-            document.getElementById('mouse-top').innerHTML = mouseScale;
+            if (screenX && clientX) {
+                var mouseScale = (event.screenX - screenX) / (event.clientX - clientX);
+                document.getElementById('mouse-top').innerHTML = mouseScale;
+            } else {
+                screenX = event.screenX;
+                clientX = event.clientX;
+            }
         });
     });
 
