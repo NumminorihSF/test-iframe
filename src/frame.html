@@ -17,54 +17,51 @@
     </style>
 </head>
 <body>
-<div id="root">
-    Iframe root
-</div>
-<div id="parent">
-    Iframe parent
-</div>
-<div id="screen">
-    Screen
-</div>
-<div id="window-inner">
-    Window.inner
-</div>
-<div id="window-outer">
-    Window.outer
-</div>
-<div id="viewport">
-    Viewport
-</div>
-<div id="frame">
-    frame
-</div>
-<div id="vh-vw">
-    VH + VW
-</div>
+<div>Iframe root
+    <div id="root"></div></div>
+<div>Iframe parent
+    <div id="parent"></div></div>
+<div>Screen
+    <div id="screen"></div></div>
+<div>Window.inner
+    <div id="window-inner"></div></div>
+<div>Window.outer
+    <div id="window-outer"></div></div>
+<div>Viewport
+    <div id="viewport"></div></div>
+<div>frame
+    <div id="frame"></div></div>
+<div>VH + VW
+    <div id="vh-vw"></div></div>
 <hr>
-<div id="dpr">
-    DPR
-</div>
-<div id="dpr-top">
-    DPR top
-</div>
-<div id="scale">
-    Scale
-</div>
-<div id="scale-top">
-    Scale top
-</div>
+<div>DPR
+    <div id="dpr"></div></div>
+<div>DPR top
+    <div id="dpr-top"></div></div>
+<div>Scale
+    <div id="scale"></div></div>
+<div>Scale top
+    <div id="scale-top"></div></div>
 <div>
     Resolutions
     <ul id="resolution"></ul>
 </div>
 <div>
     Resolutions top
-<ul id="resolution-top"></ul>
+    <ul id="resolution-top"></ul>
 </div>
+<div>
+    Mouse move
+    <div id="mouse"></div>
+</div>
+<div>
+    Mouse move top
+    <div id="mouse-top"></div>
+</div>
+
 <script>
     console.log("this");
-    setTimeout(function() {
+    setInterval(function() {
         var height = Math.max(
             document.body.scrollHeight,
             document.documentElement.scrollHeight,
@@ -81,74 +78,74 @@
             document.body.clientWidth,
             document.documentElement.clientWidth
         );
-        document.getElementById("root").innerHTML += " " + height + "X" + width;
-    });
+        document.getElementById("root").innerHTML = " " + height + "X" + width;
+    }, 1000);
 
-    setTimeout(function() {
+    setInterval(function() {
         var height = window.screen.height
         var width = window.screen.width
-        document.getElementById("screen").innerHTML += " " + height + "X" + width;
-    });
+        document.getElementById("screen").innerHTML = " " + height + "X" + width;
+    }, 1000);
 
-    setTimeout(function() {
+    setInterval(function() {
         var height = window.height
         var width = window.width
-        document.getElementById("window").innerHTML += " " + height + "X" + width;
-    });
+        document.getElementById("window").innerHTML = " " + height + "X" + width;
+    }, 1000);
 
- setTimeout(function() {
+    setInterval(function() {
         var height = window.outerHeight
         var width = window.outerWidth
-        document.getElementById("window-outer").innerHTML += " " + height + "X" + width;
-    });
-    setTimeout(function() {
+        document.getElementById("window-outer").innerHTML = " " + height + "X" + width;
+    }, 1000);
+    setInterval(function() {
         var dpr = window.devicePixelRatio
-        document.getElementById("dpr").innerHTML += " " + dpr;
-    });
-    setTimeout(function() {
+        document.getElementById("dpr").innerHTML = " " + dpr;
+    }, 1000);
+    setInterval(function() {
         var dpr = window.top.devicePixelRatio
-        document.getElementById("dpr-top").innerHTML += " " + dpr;
-    });
-    setTimeout(function() {
+        document.getElementById("dpr-top").innerHTML = " " + dpr;
+    }, 1000);
+    setInterval(function() {
         var scale = window.screen.width/window.innerWidth;
-        document.getElementById("scale").innerHTML += " " + scale;
-    });
-    setTimeout(function() {
+        document.getElementById("scale").innerHTML = " " + scale;
+    }, 1000);
+    setInterval(function() {
         var scale = window.screen.width / window.top.innerWidth;
-        document.getElementById("scale-top").innerHTML += " " + scale;
-    });
-    setTimeout(function() {
+        document.getElementById("scale-top").innerHTML = " " + scale;
+    }, 1000);
+    setInterval(function() {
         var resolutions = [0.75, 0.8, 0.9, 1, 1.1, 1.25, 1.50, 1.75];
         resolutions.forEach(function(res) {
             var matched = window.matchMedia('(resolution: '+res+'dppx)').matches
-            document.getElementById("resolution").innerHTML += "<li>" + matched+"</li>";
+            document.getElementById("resolution").innerHTML = "<li>" + matched+"</li>";
         })
-    });
-    setTimeout(function() {
+    }, 1000);
+    setInterval(function() {
         var resolutions = [0.75, 0.8, 0.9, 1, 1.1, 1.25, 1.50, 1.75];
         resolutions.forEach(function(res) {
             var matched = window.top.matchMedia('(resolution: '+res+'dppx)').matches
-            document.getElementById("resolution-top").innerHTML += "<li>" + matched+"</li>";
+            document.getElementById("resolution-top").innerHTML = "<li>" + matched+"</li>";
         })
-    });
- setTimeout(function() {
+    }, 1000);
+    setInterval(function() {
         var height = window.innerHeight
         var width = window.innerWidth
-        document.getElementById("window-inner").innerHTML += " " + height + "X" + width;
-    });
+        document.getElementById("window-inner").innerHTML = " " + height + "X" + width;
+    }, 1000);
 
-    setTimeout(function() {
+    setInterval(function() {
         if (window.frameElement) {
             var height = window.frameElement.offsetHeight
             var width = window.frameElement.offsetWidth
-            document.getElementById("frame").innerHTML += " " + height + "X" + width;
+            document.getElementById("frame").innerHTML = " " + height + "X" + width;
         } else {
-            document.getElementById("frame").innerHTML += " no frameElement";
+            document.getElementById("frame").innerHTML = " no frameElement";
         }
-    });
+    }, 1000);
 
 
-    setTimeout(function() {
+    setInterval(function() {
         const elem = document.createElement('div');
         elem.style.height = '100vh';
         elem.style.width = '100vw';
@@ -157,7 +154,21 @@
         wrapper.style.position = 'absolute';
         document.body.appendChild(wrapper);
         const style = window.getComputedStyle(wrapper);
-        document.getElementById("vh-vw").innerHTML += " " + style.height + "X" + style.width;
+        document.getElementById("vh-vw").innerHTML = " " + style.height + "X" + style.width;
+    }, 1000);
+
+    setTimeout(function() {
+        window.addEventListener("mousemove", function(event) {
+            var mouseScale = event.screenX / event.clientX;
+            document.getElementById('mouse').innerHTML = mouseScale;
+        });
+    });
+
+    setTimeout(function() {
+        window.top.addEventListener("mousemove", function(event) {
+            var mouseScale = event.screenX / event.clientX;
+            document.getElementById('mouse-top').innerHTML = mouseScale;
+        });
     });
 
     function getRootWindow(window) {
@@ -173,7 +184,7 @@
         return window;
     }
 
-    setTimeout(function() {
+    setInterval(function() {
         var parent = getRootWindow(window);
         var document = parent.document;
         var pheight = Math.max(
@@ -192,12 +203,8 @@
             document.body.clientWidth,
             document.documentElement.clientWidth
         );
-        window.document.getElementById("parent").innerHTML +=
+        window.document.getElementById("parent").innerHTML =
             " " + pheight + "X" + pwidth;
-    });
-
-    setTimeout(function() {
-        debugger;
     }, 1000);
 </script>
 </body>
