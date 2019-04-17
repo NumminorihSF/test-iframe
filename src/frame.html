@@ -41,6 +41,19 @@
 <div id="vh-vw">
     VH + VW
 </div>
+<hr>
+<div id="dpr">
+    DPR
+</div>
+<div id="dpr-top">
+    DPR top
+</div>
+<div id="scale">
+    Scale
+</div>
+<div id="scale-top">
+    Scale top
+</div>
 <script>
     console.log("this");
     setTimeout(function() {
@@ -79,6 +92,22 @@
         var height = window.outerHeight
         var width = window.outerWidth
         document.getElementById("window-outer").innerHTML += " " + height + "X" + width;
+    });
+    setTimeout(function() {
+        var dpr = window.devicePixelRatio
+        document.getElementById("dpr").innerHTML += " " + dpr;
+    });
+    setTimeout(function() {
+        var dpr = window.top.devicePixelRatio
+        document.getElementById("dpr-top").innerHTML += " " + dpr;
+    });
+    setTimeout(function() {
+        var scale = window.screen.width/window.innerWidth;
+        document.getElementById("scale").innerHTML += " " + scale;
+    });
+    setTimeout(function() {
+        var scale = window.screen.width / window.top.innerWidth;
+        document.getElementById("scale-top").innerHTML += " " + scale;
     });
  setTimeout(function() {
         var height = window.innerHeight
