@@ -116,16 +116,18 @@
     }, 1000);
     setInterval(function() {
         var resolutions = [0.75, 0.8, 0.9, 1, 1.1, 1.25, 1.50, 1.75];
+        document.getElementById("resolution").innerHTML = '';
         resolutions.forEach(function(res) {
             var matched = window.matchMedia('(resolution: '+res+'dppx)').matches
-            document.getElementById("resolution").innerHTML = "<li>" + matched+"</li>";
+            document.getElementById("resolution").innerHTML += "<li>" + res + "x = "+ matched+"</li>";
         })
     }, 1000);
     setInterval(function() {
         var resolutions = [0.75, 0.8, 0.9, 1, 1.1, 1.25, 1.50, 1.75];
+        document.getElementById("resolution-top").innerHTML = '';
         resolutions.forEach(function(res) {
             var matched = window.top.matchMedia('(resolution: '+res+'dppx)').matches
-            document.getElementById("resolution-top").innerHTML = "<li>" + matched+"</li>";
+            document.getElementById("resolution-top").innerHTML += "<li>" + res + "x = "+ matched+"</li>";
         })
     }, 1000);
     setInterval(function() {
