@@ -43,14 +43,6 @@
 <div>Scale top
     <span id="scale-top"></span></div>
 <div>
-    Mouse move
-    <span id="mouse"></span>
-</div>
-<div>
-    Mouse move top
-    <span id="mouse-top"></span>
-</div>
-<div>
     Resolutions
     <ul id="resolution"></ul>
 </div>
@@ -158,34 +150,6 @@
         const style = window.getComputedStyle(wrapper);
         document.getElementById("vh-vw").innerHTML = " " + style.height + "X" + style.width;
     }, 1000);
-
-    setTimeout(function() {
-        var screenX = 0;
-        var clientX = 0;
-        window.addEventListener("mousemove", function(event) {
-            if (screenX && clientX) {
-                var mouseScale = (event.screenX - screenX) / (event.clientX - clientX);
-                document.getElementById('mouse').innerHTML = mouseScale;
-            } else {
-                screenX = event.screenX;
-                clientX = event.clientX;
-            }
-        });
-    });
-
-    setTimeout(function() {
-        var screenX = 0;
-        var clientX = 0;
-        window.top.addEventListener("mousemove", function(event) {
-            if (screenX && clientX) {
-                var mouseScale = (event.screenX - screenX) / (event.clientX - clientX);
-                document.getElementById('mouse-top').innerHTML = mouseScale;
-            }
-                screenX = event.screenX;
-                clientX = event.clientX;
-
-        });
-    });
 
     function getRootWindow(window) {
         if (window.parent && window.parent !== window) {
