@@ -180,10 +180,10 @@
             if (screenX && clientX) {
                 var mouseScale = (event.screenX - screenX) / (event.clientX - clientX);
                 document.getElementById('mouse-top').innerHTML = mouseScale;
-            } else {
+            }
                 screenX = event.screenX;
                 clientX = event.clientX;
-            }
+
         });
     });
 
