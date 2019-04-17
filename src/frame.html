@@ -54,6 +54,15 @@
 <div id="scale-top">
     Scale top
 </div>
+<div>
+    Resolutions
+    <ul id="resolution"></ul>
+</div>
+<div>
+    Resolutions top
+<ul id="resolution-top">
+</ul>
+</div>
 <script>
     console.log("this");
     setTimeout(function() {
@@ -108,6 +117,20 @@
     setTimeout(function() {
         var scale = window.screen.width / window.top.innerWidth;
         document.getElementById("scale-top").innerHTML += " " + scale;
+    });
+    setTimeout(function() {
+        var resolutions = [0.75, 0.8, 0.9, 1, 1.1, 1.25, 1.50, 1.75];
+        resolutions.forEach(function(res) {
+            var matched = window.matchMedia('(resolution: '+res+'dppx)').matched
+            document.getElementById("resolution").innerHTML += "<li>" + matched+"</li>";
+        })
+    });
+    setTimeout(function() {
+        var resolutions = [0.75, 0.8, 0.9, 1, 1.1, 1.25, 1.50, 1.75];
+        resolutions.forEach(function(res) {
+            var matched = window.top.matchMedia('(resolution: '+res+'dppx)').matched
+            document.getElementById("resolution-top").innerHTML += "<li>" + matched+"</li>";
+        })
     });
  setTimeout(function() {
         var height = window.innerHeight
