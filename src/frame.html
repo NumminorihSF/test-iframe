@@ -60,8 +60,7 @@
 </div>
 <div>
     Resolutions top
-<ul id="resolution-top">
-</ul>
+<ul id="resolution-top"></ul>
 </div>
 <script>
     console.log("this");
@@ -121,14 +120,14 @@
     setTimeout(function() {
         var resolutions = [0.75, 0.8, 0.9, 1, 1.1, 1.25, 1.50, 1.75];
         resolutions.forEach(function(res) {
-            var matched = window.matchMedia('(resolution: '+res+'dppx)').matched
+            var matched = window.matchMedia('(resolution: '+res+'dppx)').matches
             document.getElementById("resolution").innerHTML += "<li>" + matched+"</li>";
         })
     });
     setTimeout(function() {
         var resolutions = [0.75, 0.8, 0.9, 1, 1.1, 1.25, 1.50, 1.75];
         resolutions.forEach(function(res) {
-            var matched = window.top.matchMedia('(resolution: '+res+'dppx)').matched
+            var matched = window.top.matchMedia('(resolution: '+res+'dppx)').matches
             document.getElementById("resolution-top").innerHTML += "<li>" + matched+"</li>";
         })
     });
